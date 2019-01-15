@@ -1,4 +1,4 @@
-# Predicting Active Compounds for New Targets Using Bioactivity-Matrix Derived Informer Sets
+# Predicting kinase inhibitors using bioactivity matrix derived informer sets
 This repository contains baseline Informer-Based Ranking (IBR) methods and evaluation metrics for all IBRs, including non-baselines.
 It provides the kinase screening data used to evaluate the IBR methods.
 See also the repositories for:
