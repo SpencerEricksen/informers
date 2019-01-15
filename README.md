@@ -8,7 +8,7 @@ See also the repositories for:
 ## Kinase screening data
 There are two main data directories
 - `inf_newtargs/data/` - new screening data for PknB and BGLF4
-- `inf_pkis1loto/data/` - formatted PKIS1 and PKIS2 screening data
+- `inf_pkis1loto/data/` - pre-processed PKIS1 and PKIS2 screening data
 
 ## Python environment
 This code was run in the following conda environment:
