@@ -7,7 +7,7 @@ python 2.7.15
 
 # packages in environment at ~/anaconda2:
 
-# Name                    Version                   Build  Channel
+# Name                    Version                   Build    Channel
 
 matplotlib                2.2.2                    py27_1    conda-forge
 numpy                     1.14.5          py27_blas_openblashd3ea46f_201  [blas_openblas]  conda-forge
