@@ -1,0 +1,3 @@
+./baseline_on_newtargs_v2.2.py 16 1 ../data/data_newtargs_pkis1cpds.csv
+./baseline_on_newtargs_v2.2.py 16 2 ../data/data_newtargs_pkis2cpds.csv
+

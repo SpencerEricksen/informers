@@ -1,0 +1,80 @@
+# for PKNB, we could use data in spreadsheet to build compound rankings. I took his prediction score from the spreadsheet and merged this with pkis1 and pkis2 data sets from Huikun.
+
+# first extract ChingPei's pknb predictions from July spreadsheet:
+df = pd.read_excel('../../../data/newtargs/pkis_data_2018_0719.xlsx', sheet_name='PknB_Predictions' )
+df.to_csv('chingpei_predictions_pknb.csv')
+
+Now, extract informer set lists using his PKNB predictions--since these will be the same for pknb and bglf4 targets. Remember, informer set selection is based on the full PKIS1 or full PKIS2 matrix and is not dependent on the new target identity.
+
+To get informer lists, I loaded HZ's complete PKIS1 data matrix (actually my refined dataframes of his continuous data). Then load CP's PKNB prediction data, 'chingpei_predictions_pknb.csv', which has 'Informer' compounds designated. This column contains data for both PKIS1 and PKIS2 compounds.
+
+./get_CP_informers_from_spreadsheet_pkis1.py
+./get_CP_informers_from_spreadsheet_pkis2.py
+
+Now to get cpd scores for CP's method against PKNB:
+
+./get_CP_pknb_from_spreadsheet_pkis1.py
+./get_CP_pknb_from_spreadsheet_pkis2.py
+
+and to get cpd scores for CP's method against BGLF4:
+
+./pandas_merge_CP_bglf4_scores_newinformers_pkis1_v1.1.py
+./pandas_merge_CP_bglf4_scores_newinformers_pkis2_v1.1.py
+
+
+This produces:
+RS_bglf4_pkis1.csv  
+RS_bglf4_pkis2.csv  
+RS_pknb_pkis1.csv  
+RS_pknb_pkis2.csv
+
+
+
+
+
+
+
+##### old--probably incorrect informer set lists below #######
+
+
+Here were informer sets listed inprevious emails:
+
+Ching-pei informer sets:
+
+pkis1   11/2/17 Re: informer set
+        11959682
+        44386338
+        53239967
+        56604013
+         5329829
+        57396353
+        57391096
+         5482344
+        11281930
+         6539081
+         6539409
+        11233873
+        44581222
+        25218614
+        25218600
+        25218584
+
+pkis2 3/6/18 Re: PKIS2 informer set
+
+ChingPei	INH
+CID006450551	5.6
+CID044529220	-1
+CID023648890	0.3
+CID024804781	-7
+CID056670156	-7
+CID025263105	-2
+CID053467392	-3
+CID024803301	-5
+CID006539582	-10
+CID006539394	-3
+CID024804780	-3
+CID006539428	-8
+CID044592502	-1
+CID010310395	0.6
+CID005311382	1.8
+CID024803786	6.2
