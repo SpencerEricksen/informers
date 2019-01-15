@@ -1,6 +1,4 @@
-# informers
-
-baseline IBR methods and metrics evals for all IBRs (including non-baselines)
+# informers: baseline IBR methods and metrics evals for all IBRs (including non-baselines)
 
 python version: 2.7.15
 
