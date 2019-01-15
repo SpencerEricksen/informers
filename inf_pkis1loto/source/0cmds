@@ -1,0 +1,10 @@
+# run chemometric baselines
+./baseline_inf_sel_rank_methods_v2.4.py 16 clst se
+./baseline_inf_sel_rank_methods_v2.4.py 16 clst le
+./baseline_inf_sel_rank_methods_v2.4.py 16 clst we
+
+# run frequent-hitters baselines
+./baseline_inf_sel_rank_methods_v2.4.py 16 prom se
+./baseline_inf_sel_rank_methods_v2.4.py 16 prom le
+./baseline_inf_sel_rank_methods_v2.4.py 16 prom we 
+

@@ -1,0 +1,14 @@
+original PKIS1 dataset, downloaded from link in manuscript
+
+PKIS_screening_data.csv
+
+
+use the prep scripts to transpose data into 366 cpds * 224 targets
+
+in the original 369 cpds were 3 duplicate mols in the list (duplicate SMILES and CHEMBL_ID)
+
+the prep script uses the average activity value for the duplicates
+
+
+
+for the 1 uM data, there were repeat assays by Frye lab. I only kept the Nanosyn assay results to keep data consistent

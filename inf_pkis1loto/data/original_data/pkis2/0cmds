@@ -1,0 +1,39 @@
+ipython
+awk '{print $2, $3}' pkis2_original_smiles.smi > pkis2_original_smiles.smi2
+mv pkis2_original_smiles.smi2 pkis2_original_smiles.smi
+
+rdkit_canonicalize_desalt_SMILES_v1.2.py pkis2_original_smiles.smi pkis2_smiles_rdkit_desalt.can
+awk '{print $1}' pkis2_smiles_rdkit_desalt.can > pkis2_smiles_rdkit_desalt.list
+
+submit pkis2_smiles_rdkit_desalt.list to PubChem identifier exchange service
+
+
+
+# now I merged the desalted_smiles:CIDs with the desalted_smiles:Compound using: merge_original_w_PCIES.py
+
+# there were 5 cpds with duplicated desalted smiles. only the first occurrence was kept in the merge.
+# i will go back in and add these by hand since the Compound name is unique but the desalted smiles
+# and hence the CID matched are the same
+
+
+# now added the non-commented lines back in:
+
+UNC10225023A	NCCNS(=O)(=O)c1ccc(-c2ccnc3[nH]ccc23)cc1    23648890.0
+#UNC10225023B	NCCNS(=O)(=O)c1ccc(-c2ccnc3[nH]ccc23)cc1    23648890.0
+UNC10225206A	CC(C)(CN)c1nc(-c2ccc(Cl)c(O)c2)c(-c2ccncc2)[nH]1    22185475.0
+#UNC10225206B	CC(C)(CN)c1nc(-c2ccc(Cl)c(O)c2)c(-c2ccncc2)[nH]1    22185475.0
+UNC10225334A	COc1ccc(-c2nc3n(c2-c2ccncc2)CCC3)cc1    469038.0
+#UNC10225334B	COc1ccc(-c2nc3n(c2-c2ccncc2)CCC3)cc1    469038.0
+UNC10225420A	Fc1ccc(-c2ncn(C3CCNCC3)c2-c2ccnc(Nc3ccccc3)n2)cc1    9888013.0
+#UNC10225420B	Fc1ccc(-c2ncn(C3CCNCC3)c2-c2ccnc(Nc3ccccc3)n2)cc1    9888013.0
+UNC10225417A	CSc1nn2c(=O)cc(N3CCOCC3)nc2n1Cc1cccc(C(F)(F)F)c1C    70685442.0
+#UNC10243881A	CSc1nn2c(=O)cc(N3CCOCC3)nc2n1Cc1cccc(C(F)(F)F)c1C    70685442.0
+
+
+
+# finally, merge a CSV of the original PKIS2 spreadsheet with my molid file
+./add_cids_nosaltsmi_to_original_matrix.py
+
+# this produces the final data file with available CIDs:
+pkis2_download_journal.pone.0181585.s004_wCIDs_NoSaltSmis.csv
+

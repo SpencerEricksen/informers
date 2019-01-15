@@ -1,0 +1,4 @@
+# run metrics using rankings for baselines and non-baselines
+./eval_pkis1loto_rocaucs_v1.1.py
+./eval_pkis1loto_nef10_v1.1.py
+./eval_pkis1loto_fasr10_v1.1.py

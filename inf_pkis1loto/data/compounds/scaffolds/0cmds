@@ -1,0 +1,2 @@
+./rdkit_get_generic_Murcko_scaffolds_v1.3.py ../pkis1_uniq_tested.can > pkis1_gen_scaffids.csv 
+./rdkit_get_generic_Murcko_scaffolds_v1.3.py ../pkis2_uniq_tested.can > pkis2_gen_scaffids.csv
