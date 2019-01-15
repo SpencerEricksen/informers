@@ -5,8 +5,7 @@ python version: 2.7.15
 
 # packages in environment at ~/anaconda2:
 
-# Name                    Version 
-
+# Name                    Version
 matplotlib                2.2.2
 numpy                     1.14.5
 pandas                    0.23.3
