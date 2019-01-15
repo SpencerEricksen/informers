@@ -1,0 +1,30 @@
+#### sweeping through various informer set sizes using BC (clst) and BF (prom) baseline methods:
+
+for n in {1..48}; do 
+  for inf in prom clst; do 
+    for rank in we; do 
+      echo $n $inf $rank; 
+      ./baseline_inf_sel_rank_methods_v23.py ${n} ${inf} ${rank} 1> active_informers_${n}_${inf}_${rank}.txt; 
+    done; 
+  done; 
+done
+
+
+
+
+# merge outcomes into single dataframes for each metric
+./eval_rocauc_BC_sweep_Ninf_1-48.py 
+./eval_nef10_BC_sweep_Ninf_1-48.py
+
+# plot BC metrics
+./plot_BL_infsweep.py ./data/baseline_pkis1_rocauc_evaluations_BC_sweep_Ninf_1-48.csv ./data/baseline_pkis1_nef10_evaluations_BC_sweep_Ninf_1-48.csv boxplot_pkis1loto_BC_1-48_infsweep.png
+
+
+
+
+# merge BF outcomes into single dataframe for each metric
+./eval_rocauc_BF_sweep_Ninf_1-48.py 
+./eval_nef10_BF_sweep_Ninf_1-48.py
+
+# plot metrics
+./plot_BL_infsweep.py ./data/baseline_pkis1_rocauc_evaluations_BF_sweep_Ninf_1-48.csv ./data/baseline_pkis1_nef10_evaluations_BF_sweep_Ninf_1-48.csv boxplot_pkis1loto_BF_1-48_infsweep.png
