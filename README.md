@@ -1,11 +1,21 @@
-# informers: 
+# Predicting kinase inhibitors using bioactivity matrix derived informer sets
+This repository contains baseline Informer-Based Ranking (IBR) methods and evaluation metrics for all IBRs, including non-baselines.
+It provides the kinase screening data used to evaluate the IBR methods.
+See also the repositories for:
+- [Regression Selection (RS)](https://github.com/leepei/informer)
+- [Coding Selection (CS) and Adaptive Selection (AS)](https://github.com/wiscstatman/esdd/tree/master/informRset)
 
-baseline IBR methods and metrics evals for all IBRs (including non-baselines)
+## Kinase screening data
+There are two main data directories
+- `inf_newtargs/data/` - new screening data for PknB and BGLF4
+- `inf_pkis1loto/data/` - pre-processed PKIS1 and PKIS2 screening data
 
+## Python environment
+This code was run in the following conda environment:
 
-python version: 2.7.15
+Python version: 2.7.15
 
-packages in environment at ~/anaconda2:
+Packages in environment:
 
 | Name         | Version     |
 | ------------ | ----------- |
@@ -16,4 +26,3 @@ packages in environment at ~/anaconda2:
 | scikit-learn | 0.19.2      |
 | scipy        | 1.1.0       |
 | seaborn      | 0.9.0       |
-
