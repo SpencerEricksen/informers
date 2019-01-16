@@ -1,0 +1,4 @@
+# plot 3D scatter plots comparing active compound distributions in PCA of Morgan fingerprints (chem space)
+# (2 panels--left EGFR and right LOK)
+
+./plot_3Dscatter_pca_cpds_pkis1.py activity cividis_r ./data/ranked_df_16_clst_we_thresh.csv 1.00

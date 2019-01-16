@@ -1,0 +1,6 @@
+# get active fractions from the data
+./pandas_get_active_fraction.py 1
+./pandas_get_active_fraction.py 2
+
+# plot figure
+./plot_hit_fract.py ./data/active_fraction_pkis1.csv ./data/active_fraction_pkis2.csv

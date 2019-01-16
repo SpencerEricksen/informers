@@ -1,0 +1,5 @@
+# generate violin plots for PKIS1 LOTO on 3 metrics
+./plot_violin_v1.4_2BLs.py ./data/pkis1loto_eval_ROCAUC.csv ROCAUC violin_pkis1loto_ROCAUC.png v
+./plot_violin_v1.4_2BLs.py ./data/pkis1loto_eval_NEF10.csv NEF10 violin_pkis1loto_NEF10.png v
+./plot_violin_v1.4_2BLs.py ./data/pkis1loto_eval_FASR10.csv FASR10 violin_pkis1loto_FASR10.png v
+

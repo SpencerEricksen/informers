@@ -1,0 +1,6 @@
+Prepare histograms showing distribution of active compound fractions for PKIS1 and PKIS2 targets. Show where the new targets sit within this distribution.
+
+The active label is assigned to any compound passing mu+2sigma threshold for percent inhibition for a given compound set (PKIS1 or PKIS2) on the target of interest.
+
+The threshold is thus target dependent.
+

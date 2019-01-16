@@ -1,0 +1,8 @@
+# prepare CSV dataframes of nearest neighbors for each target
+# based on sequence identity matrices in spreadsheet
+./eval_target_sim_v1.3.py pkis1_set ./data/nn_pkis1_sim.csv
+./eval_target_sim_v1.3.py pkis2_set ./data/nn_pkis2_sim.csv 
+
+
+# final dual panel figure
+./plot_sim_dist_pkis12.py ./data/nn_pkis1_sim.csv ./data/nn_pkis2_sim.csv
