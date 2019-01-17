@@ -1,5 +1,5 @@
 # Predicting kinase inhibitors using bioactivity matrix derived informer sets
-This repository contains baseline Informer-Based Ranking (IBR) methods and evaluation metrics for all IBRs, including non-baselines.
+This repository contains baseline Informer-Based Ranking (IBR) methods and procedures for evaluating metrics for IBR performance (including non-baseline IBRs).
 It provides the kinase screening data used to evaluate the IBR methods.
 See also the repositories for:
 - [Regression Selection (RS)](https://github.com/leepei/informer)
