@@ -46,14 +46,14 @@ try:
 except:
     print('')
     print('')
-    print('usage: ./plot...py   activity  cividis_r  ../ranked_clst_we_thresh.csv  clst_we_civ_act     0.05          ')
+    print('usage: ./plot...py   activity  cividis  ../ranked_clst_we_thresh.csv  clst_we_civ_act     1.00          ')
     print('')
     print('                     colorby   colormap   rankingdata                 graph_image_rootname  rankthresh    ')
     print('')
     print('')
     print('       colorby: activity or ranking')
     print('')
-    print('       colormap: cividis_r, magma_r, viridis_r, plasma_r, inferno_r, ...')
+    print('       colormap: cividis, magma, viridis, plasma, inferno, ...')
     print('')
     print('')
     exit
@@ -78,7 +78,6 @@ molids = list(df_fps.index)
 df_act_mat = get_continuous( activity_data_csv )
 # re-order the activity dataframe indices to match with feature data matrix rows
 df_act_mat = df_act_mat.reindex( index=molids )
-df_act_mat_inv = 1.00 - df_act_mat
 
 # get binary data matrix
 df_binary = get_binary( df_act_mat )
@@ -132,8 +131,8 @@ for i in range(len(targlist)):
         # normalize plot point colors
         normalize = mpl.colors.Normalize(vmin=0.0, vmax=1)
         if colorby == 'activity':
-            scat_i = ax.scatter( X_r_i[:,0], X_r_i[:,1], X_r_i[:,2], c=df_act_mat_inv[targ].iloc[ idx_inf ].values, cmap=plt.get_cmap(colormap), norm=normalize, alpha=0.7, lw=0.1, s=10, edgecolor='none' )
-            scat_n = ax.scatter( X_r_n[:,0], X_r_n[:,1], X_r_n[:,2], c=df_act_mat_inv[targ].iloc[ idx_ninf_rankthresh ].values,   cmap=plt.get_cmap( colormap ), norm=normalize, alpha=0.7,  lw=0.5, s=10, edgecolor=list( np.array(ninf_colors)[ idx_ninf_rankthresh ]) ) #edgecolor='black' )
+            scat_i = ax.scatter( X_r_i[:,0], X_r_i[:,1], X_r_i[:,2], c=df_act_mat[targ].iloc[ idx_inf ].values, cmap=plt.get_cmap(colormap), norm=normalize, alpha=0.7, lw=0.1, s=10, edgecolor='none' )
+            scat_n = ax.scatter( X_r_n[:,0], X_r_n[:,1], X_r_n[:,2], c=df_act_mat[targ].iloc[ idx_ninf_rankthresh ].values,   cmap=plt.get_cmap( colormap ), norm=normalize, alpha=0.7,  lw=0.5, s=10, edgecolor=list( np.array(ninf_colors)[ idx_ninf_rankthresh ]) ) #edgecolor='black' )
 
         elif colorby == 'ranking':
             scat_i = ax.scatter( X_r_i[:,0], X_r_i[:,1], X_r_i[:,2], c=inf_colors, alpha=1.0, lw=0, s=10, edgecolor=inf_colors )
@@ -150,6 +149,6 @@ fig.subplots_adjust(right=0.8)
 cbar_ax = fig.add_axes( [0.85, 0.15, 0.05, 0.7] )
 fig.colorbar( scat_n, cax=cbar_ax)
 fig.set_size_inches(10,4)
-plt.savefig( 'pca_morgan_pkis1_egfr_lok.png', dpi=600 )
+plt.savefig( 'sfig3_pca_morgan_pkis1_egfr_lok.png', dpi=600 )
 plt.close()
 
