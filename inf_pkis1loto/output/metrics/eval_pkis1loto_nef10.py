@@ -63,7 +63,7 @@ rankings_files = rankings_files + glob.glob('../rankings/hz/*.csv')
 rankings_files = rankings_files + glob.glob('../rankings/cp/*.csv')
 rankings_files.sort()
 
-activity_matrix_file = '../../data/pkis1.csv'
+activity_matrix_file = '../../../data/pkis1.csv'
 
 df_continuous = get_continuous( activity_matrix_file )
 

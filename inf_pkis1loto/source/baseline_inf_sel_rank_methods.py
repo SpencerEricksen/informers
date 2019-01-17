@@ -229,9 +229,9 @@ def main():
 
     import sys
     
-    activity_data_csv = '../data/pkis1.csv'
-    distance_data_csv = '../data/compounds/pkis1_jaccard_distmat_ecfp4.csv'
-    fps_file = '../data/compounds/pkis1_uniq_ecfp4_1024.fps'
+    activity_data_csv = '../../data/pkis1.csv'
+    distance_data_csv = '../../data/compounds/pkis1_jaccard_distmat_ecfp4.csv'
+    fps_file = '../../data/compounds/pkis1_uniq_ecfp4_1024.fps'
  
     try:
         n_informers = int(sys.argv[1])
@@ -252,9 +252,9 @@ def main():
 
     # read in thresholds data (provided by Huikun--predicted 2sigma thresholds based on informer activities)
     if inf_selection == 'prom':
-        df_thresh = pd.read_csv( '../data/thresholds_2sigma/prom_le_thresh.txt', index_col=0, header=None, names=['Activity'], delimiter=" " )
+        df_thresh = pd.read_csv( '../../data/thresholds_2sigma/prom_le_thresh.txt', index_col=0, header=None, names=['Activity'], delimiter=" " )
     elif inf_selection == 'clst':
-        df_thresh = pd.read_csv( '../data/thresholds_2sigma/clst_le_thresh.txt', index_col=0, header=None, names=['Activity'], delimiter=" " )    
+        df_thresh = pd.read_csv( '../../data/thresholds_2sigma/clst_le_thresh.txt', index_col=0, header=None, names=['Activity'], delimiter=" " )    
     else:
         print('issue with 2sigma thresholds!')
         exit(1)
@@ -323,8 +323,7 @@ def main():
     
     
     ranked_df = pd.concat( ranked_sets, axis=1, sort=False )
-    ranked_df.to_csv( 'ranked_df_'+str(n_informers)+'_'+inf_selection+'_'+ranking+'_thresh_v24.csv', index_label='molid' )
-    #print ranked_df
+    ranked_df.to_csv( 'ranked_df_'+str(n_informers)+'_'+inf_selection+'_'+ranking+'_thresh.csv', index_label='molid' )
 
 if __name__ == "__main__":
     main()

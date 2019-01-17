@@ -27,13 +27,13 @@ except:
 
 # load data
 if matrix_dataset == '1':
-    activity_data_csv = '../data/pkis1.csv'
-    fps_file = '../data/pkis1_uniq_ecfp4_1024.fps'
-    distance_data_csv = '../data/pkis1_jaccard_distmat_ecfp4.csv'
+    activity_data_csv = '../../data/pkis1.csv'
+    fps_file = '../../data/compounds/pkis1_uniq_ecfp4_1024.fps'
+    distance_data_csv = '../../data/compounds/pkis1_jaccard_distmat_ecfp4.csv'
 elif matrix_dataset == '2':
-    activity_data_csv = '../data/pkis2.csv'
-    fps_file = "../data/pkis2_uniq_415_ecfp4_1024.fps"
-    distance_data_csv = '../data/pkis2_415_jaccard_distmat_ecfp4.csv'
+    activity_data_csv = '../../data/pkis2.csv'
+    fps_file = "../../data/compounds/pkis2_uniq_415_ecfp4_1024.fps"
+    distance_data_csv = '../../data/compounds/pkis2_415_jaccard_distmat_ecfp4.csv'
 else:
     print('matrix dataset (arg4) was invalid')
     exit(1)
@@ -62,7 +62,7 @@ for targ in [ 'bglf4', 'pknb' ]:
                 exit(1)
             
             # get the thresholds
-            df_thresh = pd.read_csv('../data/thresholds_2sigma/newtarget_thresholds.csv', index_col='dataset')
+            df_thresh = pd.read_csv('../../data/thresholds_2sigma/newtarget_thresholds.csv', index_col='dataset')
             thresh = df_thresh[targ+'_'+inf_selection].loc['PKIS'+matrix_dataset]
             
             # read in new target data
