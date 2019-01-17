@@ -6,9 +6,19 @@ See also the repositories for:
 - [Coding Selection (CS) and Adaptive Selection (AS)](https://github.com/wiscstatman/esdd/tree/master/informRset)
 
 ## Kinase screening data
-There are two main data directories
-- `inf_newtargs/data/` - new screening data for PknB and BGLF4
-- `inf_pkis1loto/data/` - pre-processed PKIS1 and PKIS2 screening data
+There is one main data directory
+- `data` - new screening data for PknB and BGLF4, pre-processed PKIS1 and PKIS2 screening data
+
+The `data` folder also contains the following subdirectories:
+	- `compounds` - compound SMILES, Morgan fingerprints, and Morgan Jaccard distance matrices.
+	- `threshold_2sigma` - inferred target activity thresholds for assigning compound binary activity labels
+
+Codes for running baseline IBR methods and metrics evaluations are split into two folders:
+- `inf_newtargs` - baseline IBR methods on new targets (PknB and BGLF) and metrics evaluations
+- `inf_pkis1loto` - baseline IBR methods for 224 PKIS1 targets and metrics evaluations
+
+
+
 
 ## Python environment
 This code was run in the following conda environment:
