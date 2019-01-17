@@ -7,21 +7,18 @@ See also the repositories for:
 
 
 ## File Structure
-Screening and Compound data:
+
+The `informers` repository here is divided into 4 main folders: data, inf_newtargs, inf_pkis1loto, and figures.
+
 - `data` - new screening data for PknB and BGLF4, pre-processed PKIS1 and PKIS2 screening data
   - `data/compounds` - compound SMILES, Morgan fingerprints, and Morgan Jaccard distance matrices.
   - `data/threshold_2sigma` - inferred target activity thresholds for assigning compound binary activity labels
 
-
-
-Codes for baseline IBR methods and metrics evaluations:
 - `inf_newtargs` - baseline IBR methods on new targets (PknB and BGLF) and metrics evaluations
+
 - `inf_pkis1loto` - baseline IBR methods for 224 PKIS1 targets and metrics evaluations
 
-
-
-Codes for plotting figures:
-- `figures`
+- `figures` - codes for plotting figures
 
 
 
