@@ -5,19 +5,21 @@ See also the repositories for:
 - [Regression Selection (RS)](https://github.com/leepei/informer)
 - [Coding Selection (CS) and Adaptive Selection (AS)](https://github.com/wiscstatman/esdd/tree/master/informRset)
 
+
 ## File Structure
 
-Screening and Compound data:
-- `./data` - new screening data for PknB and BGLF4, pre-processed PKIS1 and PKIS2 screening data
-  - `./data/compounds` - compound SMILES, Morgan fingerprints, and Morgan Jaccard distance matrices.
-  - `./data/threshold_2sigma` - inferred target activity thresholds for assigning compound binary activity labels
+The `informers` repository comprises 4 main folders:
 
-Codes for baseline IBR methods and metrics evaluations:
-- `./inf_newtargs` - baseline IBR methods on new targets (PknB and BGLF) and metrics evaluations
-- `./inf_pkis1loto` - baseline IBR methods for 224 PKIS1 targets and metrics evaluations
+- `data` - new screening data for PknB and BGLF4, pre-processed PKIS1 and PKIS2 screening data
+  - `data/compounds` - compound SMILES, Morgan fingerprints, and Morgan Jaccard distance matrices
+  - `data/thresholds_2sigma` - inferred target activity thresholds for assigning compound binary activity labels
+  - `data/original_data` - original PKIS1 and PKIS2 data sets with descriptions of pre-processing
+  
+- `inf_newtargs` - baseline IBR methods on new targets (PknB and BGLF) and metrics evaluations
 
-Codes for plotting figures:
-- `./figures`
+- `inf_pkis1loto` - baseline IBR methods for 224 PKIS1 targets and metrics evaluations
+
+- `figures` - codes for plotting figures
 
 
 
