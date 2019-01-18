@@ -12,7 +12,7 @@ The `informers` repository comprises 4 main folders:
 
 - `data` - new screening data for PknB and BGLF4, pre-processed PKIS1 and PKIS2 screening data
   - `data/compounds` - compound SMILES, Morgan fingerprints, and Morgan Jaccard distance matrices
-  - `data/threshold_2sigma` - inferred target activity thresholds for assigning compound binary activity labels
+  - `data/thresholds_2sigma` - inferred target activity thresholds for assigning compound binary activity labels
   - `data/original_data` - original PKIS1 and PKIS2 data sets with descriptions of pre-processing
   
 - `inf_newtargs` - baseline IBR methods on new targets (PknB and BGLF) and metrics evaluations
