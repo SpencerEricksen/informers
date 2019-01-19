@@ -2,6 +2,7 @@
 
 import numpy as np
 import pandas as pd
+from sklearn import metrics
 
 ############################################################################################
 #####   informer selection procedures   ####################################################
@@ -202,4 +203,52 @@ def rank_by_weighted_expansion( inf_activities, df_dist_submat ):
     df_sim_submat = 1.00 - df_dist_submat
     s = -1.00 * df_sim_submat.apply( lambda x: np.dot( A_norm, np.array(x) ), axis=1 )
     return s
+
+###########################################
+# metrics #
+###########################################
+
+def compute_roc_auc( labels_arr, scores_arr ):
+    '''use an sklearn function to compute ROC AUC
+        probably should add some other metrics to this'''
+    if len(np.unique(labels_arr)) == 2:
+        auc = metrics.roc_auc_score( labels_arr, scores_arr )
+    else:
+        auc = 'ND'
+    return auc
+
+def enrichment_factor_single(labels_arr, scores_arr, percentile):
+    '''
+    calculate the enrichment factor based on some upper fraction
+    of library ordered by docking scores. upper fraction is determined
+    by percentile (actually a fraction of value 0.0-1.0)
+    -1 represents missing value
+    and remove them when in evaluation
+    '''
+    non_missing_indices = np.argwhere(labels_arr != -1)[:, 0]
+    labels_arr = labels_arr[non_missing_indices]
+    scores_arr = scores_arr[non_missing_indices]
+
+    sample_size = int(labels_arr.shape[0] * percentile)           # determine number mols in subset
+    pred = np.sort(scores_arr, axis=0)[::-1][:sample_size]        # sort the scores list, take top subset from library
+    indices = np.argsort(scores_arr, axis=0)[::-1][:sample_size]  # get the index positions for these in library
+    n_actives = np.nansum(labels_arr)                             # count number of positive labels in library
+    total_actives = np.nansum(labels_arr)
+    total_count = len(labels_arr)
+    n_experimental = np.nansum(labels_arr[indices])               # count number of positive labels in subset
+    temp = scores_arr[indices]
+
+    if n_actives > 0.0:
+        ef = float(n_experimental) / n_actives / percentile       # calc EF at percentile
+        ef_max = min(n_actives, sample_size) / (n_actives * percentile)
+    else:
+        ef = 'ND'
+        ef_max = 'ND'
+    return n_actives, ef, ef_max
+
+def normalized_enrichment_factor_single_hz(labels_arr, scores_arr, percentile):
+    '''this is an adjusted NEF that enables better comparison across targets with wide
+       variation in class imbalance--this was the metric implement in our informer paper'''
+    n_actives, ef, ef_max = enrichment_factor_single(labels_arr, scores_arr, percentile)
+    return ( 1.00 + (ef - 1.00) / (ef_max - 1.00) ) / 2.00
 

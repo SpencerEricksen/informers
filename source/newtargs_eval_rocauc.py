@@ -2,8 +2,7 @@
 
 import numpy as np
 import pandas as pd
-import vsmetrics
-import baseline_inf_sel_rank_methods_v22 as baseline
+import informer_functions as inf
 import sys
 
 try:
@@ -24,7 +23,7 @@ activity_matrix_file = '../../../data/data_newtargs_pkis'+matrix+'cpds.csv'
 
 df_continuous = pd.read_csv( activity_matrix_file, index_col='molid')
 
-df_binary = baseline.get_binary( df_continuous )
+df_binary = inf.get_binary( df_continuous )
 df_binary.index = df_binary.index.map(str)
 
 df_rankings = pd.read_csv( rankings_file, index_col='molid' )
@@ -45,6 +44,6 @@ for model in df_rankings.columns:
         df_temp = df_temp.dropna( how='any')
         labels_arr = df_temp['labels'].values
         scores_arr = -1.00 * df_temp['scores'].astype(float).values
-        rocauc = vsmetrics.compute_roc_auc( labels_arr, scores_arr )
+        rocauc = inf.compute_roc_auc( labels_arr, scores_arr )
         print('{},{}').format( model, str(rocauc) )
 

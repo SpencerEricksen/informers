@@ -2,8 +2,7 @@
 
 import numpy as np
 import pandas as pd
-import vsmetrics
-import baseline_inf_sel_rank_methods_v22 as baseline
+import informer_functions as inf
 import sys
 
 try:
@@ -25,7 +24,7 @@ df_scaffolds.index = df_scaffolds.index.map(str)
 
 # get the cpd labels
 df_continuous = pd.read_csv( activity_matrix_file, index_col='molid')
-df_binary = baseline.get_binary( df_continuous )
+df_binary = inf.get_binary( df_continuous )
 df_binary.index = df_binary.index.map(str)
 
 # get the cpd scores
