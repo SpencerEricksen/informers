@@ -1,4 +1,0 @@
-# convert HZ's compound score data sets for PKIS1 LOTO into CSV
-./pandas_reformat_hz_pkis1loto_data_v1.1.py adaptive_cv_ranking.txt 
-./pandas_reformat_hz_pkis1loto_data_v1.1.py coding_cv_ranking.txt 
-
