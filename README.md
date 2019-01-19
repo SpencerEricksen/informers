@@ -8,16 +8,18 @@ See also the repositories for:
 
 ## File Structure
 
-The `informers` repository comprises 4 main folders:
+The `informers` repository comprises 5 main folders:
+
+- `source` - code for running baseline methods and running evaluation metrics for all IBRs (both validation and new targets)
 
 - `data` - new screening data for PknB and BGLF4, pre-processed PKIS1 and PKIS2 screening data
   - `data/compounds` - compound SMILES, Morgan fingerprints, and Morgan Jaccard distance matrices
   - `data/thresholds_2sigma` - inferred target activity thresholds for assigning compound binary activity labels
   - `data/original_data` - original PKIS1 and PKIS2 data sets with descriptions of pre-processing
   
-- `inf_newtargs` - baseline IBR methods on new targets (PknB and BGLF) and metrics evaluations
+- `output_newtargs` - output from all IBR methods on new targets (PknB and BGLF) and metrics evaluations
 
-- `inf_pkis1loto` - baseline IBR methods for 224 PKIS1 targets and metrics evaluations
+- `output_pkis1loto` - output from all IBR methods for 224 PKIS1 targets and metrics evaluations
 
 - `figures` - codes for plotting figures
 
