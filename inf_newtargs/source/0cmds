@@ -1,8 +1,0 @@
-./baseline_on_newtargs.py 16 1 ../../data/data_newtargs_pkis1cpds.csv
-./baseline_on_newtargs.py 16 2 ../../data/data_newtargs_pkis2cpds.csv
-
-
-# for processing before metrics evaluation, output files (raw baseline rankings) get moved to:
-
-informers/inf_newtargs/output/rankings/bl
-

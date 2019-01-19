@@ -1,4 +1,0 @@
-# process raw rankings output for baselines on new targets
-./build_rankings.py 1
-./build_rankings.py 2
-
