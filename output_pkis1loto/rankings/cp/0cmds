@@ -1,0 +1,2 @@
+awk -F"," '{print $1}' ../hz/adaptive_cv_ranking.csv > hz_molid_index_pkis1.csv
+
