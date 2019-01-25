@@ -1,4 +1,4 @@
-### run metrics using rankings for baselines and non-baselines
+### evaluate metrics using rankings for baselines and non-baselines
 
 `./pkis1loto_eval_rocaucs.py` \
 `./pkis1loto_eval_nef10.py` \
