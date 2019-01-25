@@ -1,7 +1,0 @@
-# Metrics Evaluations for PKIS1 LOTO
-
-see 0cmds to for running metrics evaluations and pairwise t-tests
-
-Note: for metrics evaluations, if no informers are returned as "active" (based on inferred active threshold), baseline ranking methods 's' and 'l' will fail to rank compounds. In such cases, the target is given a minimal metric score (ROCAUC=0.5, NEF10=0.5, or FASR10=0.0)
-
-
