@@ -2,46 +2,20 @@
 
 import numpy as np
 import pandas as pd
-from sklearn.metrics import roc_auc_score
+import informer_functions as inf
 import glob
 
-
-def get_continuous( activity_matrix_file ):
-    '''read in activity data for matrix (Huikun's space delimited pkis1.csv),
-       return a dataframe with cpd molid indices and target columns
-
-       note: the data file is transposed'''
-    df = pd.read_csv( activity_matrix_file, delimiter=" ", index_col=0 ).T
-    df.index = df.index.map(str)
-    return df
-
-def get_binary( df ):
-    ''' input continous activity data frame, return binary activity dataframe '''
-    df_binary = df[ df > (df.mean(axis=0) + 2*df.std(axis=0)) ].notnull()
-    return df_binary
-
-def compute_roc_auc( labels_arr, scores_arr ):
-    '''use an sklearn function to compute ROC AUC
-        probably should add some other metrics to this'''
-    if len(np.unique(labels_arr)) == 2:
-        auc = roc_auc_score( labels_arr, scores_arr )
-    else:
-        auc = 'ND'
-    return auc
-
-
-
-rankings_files = glob.glob('../rankings/bl/ranked_df_16_*.csv')
-rankings_files = rankings_files + glob.glob('../rankings/hz/*.csv')
-rankings_files = rankings_files + glob.glob('../rankings/cp/*.csv')
+rankings_files = glob.glob('../output_pkis1loto/rankings/bl/ranked_df_16_*.csv')
+rankings_files = rankings_files + glob.glob('../output_pkis1loto/rankings/hz/*.csv')
+rankings_files = rankings_files + glob.glob('../output_pkis1loto/rankings/cp/*.csv')
 # alphabetize the file list so we can re-arrange later
 rankings_files.sort()
 
-activity_matrix_file = '../../../data/pkis1.csv'
+activity_matrix_file = '../data/pkis1.csv'
 
-df_continuous = get_continuous( activity_matrix_file )
+df_continuous = inf.get_continuous( activity_matrix_file )
 
-df_binary = get_binary( df_continuous )
+df_binary = inf.get_binary( df_continuous )
 
 s_list = []
 #load rankings
@@ -68,7 +42,7 @@ for f in rankings_files:
         labels_arr = df_temp['labels'].values
         scores_arr = -1.00 * df_temp['scores'].astype(float).values
 
-        rocauc = compute_roc_auc( labels_arr, scores_arr )
+        rocauc = inf.compute_roc_auc( labels_arr, scores_arr )
         temp_dict[targ] = rocauc
 
   s = pd.Series( temp_dict ).rename(f)
@@ -86,4 +60,4 @@ new_order = [ 'BC_s', 'BC_l', 'BC_w', 'BF_s', 'BF_l', 'BF_w', 'RS', 'CS', 'AS' ]
 
 df = df[ new_order ]
 
-df.to_csv('pkis1loto_eval_ROCAUC.csv', index_label='target')
+df.to_csv('../output_pkis1loto/metrics/pkis1loto_eval_ROCAUC.csv', index_label='target')

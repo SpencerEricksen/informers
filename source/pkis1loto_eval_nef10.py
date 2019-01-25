@@ -2,72 +2,20 @@
 
 import numpy as np
 import pandas as pd
+import informer_functions as inf
 import glob
 
-
-def get_continuous( activity_matrix_file ):
-    '''read in activity data for matrix (Huikun's space delimited pkis1.csv),
-       return a dataframe with cpd molid indices and target columns
-
-       note: the data file is transposed'''
-    df = pd.read_csv( activity_matrix_file, delimiter=" ", index_col=0 ).T
-    df.index = df.index.map(str)
-    return df
-
-def get_binary( df ):
-    ''' input continous activity data frame, return binary activity dataframe '''
-    df_binary = df[ df > (df.mean(axis=0) + 2*df.std(axis=0)) ].notnull()
-    return df_binary
-
-
-def enrichment_factor_single(labels_arr, scores_arr, percentile):
-    '''
-    calculate the enrichment factor based on some upper fraction
-    of library ordered by docking scores. upper fraction is determined
-    by percentile (actually a fraction of value 0.0-1.0)
-    -1 represents missing value
-    and remove them when in evaluation
-    '''
-    non_missing_indices = np.argwhere(labels_arr != -1)[:, 0]
-    labels_arr = labels_arr[non_missing_indices]
-    scores_arr = scores_arr[non_missing_indices]
-
-    sample_size = int(labels_arr.shape[0] * percentile)           # determine number mols in subset
-    pred = np.sort(scores_arr, axis=0)[::-1][:sample_size]        # sort the scores list, take top subset from library
-    indices = np.argsort(scores_arr, axis=0)[::-1][:sample_size]  # get the index positions for these in library
-    n_actives = np.nansum(labels_arr)                             # count number of positive labels in library
-    total_actives = np.nansum(labels_arr)
-    total_count = len(labels_arr)
-    n_experimental = np.nansum(labels_arr[indices])               # count number of positive labels in subset
-    temp = scores_arr[indices]
-
-    if n_actives > 0.0:
-        ef = float(n_experimental) / n_actives / percentile       # calc EF at percentile
-        ef_max = min(n_actives, sample_size) / (n_actives * percentile)
-    else:
-        ef = 'ND'
-        ef_max = 'ND'
-    return n_actives, ef, ef_max
-
-
-def normalized_enrichment_factor_single_hz(labels_arr, scores_arr, percentile):
-    '''this is an adjusted NEF that enables better comparison across targets with wide
-       variation in class imbalance--this was the metric implement in our informer paper'''
-    n_actives, ef, ef_max = enrichment_factor_single(labels_arr, scores_arr, percentile)
-    return ( 1.00 + (ef - 1.00) / (ef_max - 1.00) ) / 2.00
-
-
-
-rankings_files = glob.glob('../rankings/bl/ranked_df_16_*.csv')
-rankings_files = rankings_files + glob.glob('../rankings/hz/*.csv')
-rankings_files = rankings_files + glob.glob('../rankings/cp/*.csv')
+rankings_files = glob.glob('../output_pkis1loto/rankings/bl/ranked_df_16_*.csv')
+rankings_files = rankings_files + glob.glob('../output_pkis1loto/rankings/hz/*.csv')
+rankings_files = rankings_files + glob.glob('../output_pkis1loto/rankings/cp/*.csv')
+# alphabetize the file list so we can re-arrange later
 rankings_files.sort()
 
-activity_matrix_file = '../../../data/pkis1.csv'
+activity_matrix_file = '../data/pkis1.csv'
 
-df_continuous = get_continuous( activity_matrix_file )
+df_continuous = inf.get_continuous( activity_matrix_file )
 
-df_binary = get_binary( df_continuous )
+df_binary = inf.get_binary( df_continuous )
 
 s_list = []
 #load rankings
@@ -94,7 +42,7 @@ for f in rankings_files:
         labels_arr = df_temp['labels'].values
         scores_arr = -1.00 * df_temp['scores'].astype(float).values
 
-        nef10 = normalized_enrichment_factor_single_hz( labels_arr, scores_arr, 0.10 )
+        nef10 = inf.normalized_enrichment_factor_single_hz( labels_arr, scores_arr, 0.10 )
         temp_dict[targ] = nef10 
 
   s = pd.Series( temp_dict ).rename(f)
@@ -107,4 +55,4 @@ new_order = [ 'BC_s', 'BC_l', 'BC_w', 'BF_s', 'BF_l', 'BF_w', 'RS', 'CS', 'AS' ]
 
 df = df[ new_order ]
 
-df.to_csv('pkis1loto_eval_NEF10.csv', index_label='target')
+df.to_csv('../output_pkis1loto/metrics/pkis1loto_eval_NEF10.csv', index_label='target')
