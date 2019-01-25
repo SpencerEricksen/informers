@@ -100,5 +100,5 @@ for targ in [ 'bglf4', 'pknb' ]:
             print('{}, {}, {}, {}, {}, t{:.3f}, {}').format( targ, str(n_informers), inf_selection, ranking, matrix_dataset, thresh, len(act_inf_molids) )
 
 ranked_df = pd.concat( ranked_sets, axis=1, sort=False )
-ranked_df.to_csv( 'rankings_baseline_pkis'+matrix_dataset+'.csv', na_rep=np.nan, index_label='molid' )
+ranked_df.to_csv( '../output_newtargs/bl/rankings_baseline_pkis'+matrix_dataset+'.csv', na_rep=np.nan, index_label='molid' )
 
