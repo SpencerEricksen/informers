@@ -5,6 +5,15 @@ See also the repositories for:
 - [Regression Selection (RS)](https://github.com/leepei/informer)
 - [Coding Selection (CS) and Adaptive Selection (AS)](https://github.com/wiscstatman/esdd/tree/master/informRset)
 
+## Citation
+
+If you use this software or the new chemical screening data, please cite:
+
+Huikun Zhang<sup>+</sup>, Spencer S Ericksen<sup>+</sup>, Ching-pei Lee<sup>+</sup>, Gene E Ananiev, Nathan Wlodarchak, Julie C Mitchell, Anthony Gitter, Stephen J Wright, F Michael Hoffmann, Scott A Wildman, Michael A Newton.
+[Predicting kinase inhibitors using bioactivity matrix derived informer sets](https://doi.org/10.1101/532762)
+*bioRxiv* 2019. doi:10.1101/532762
+
+<sup>+</sup> equal contributions
 
 ## File Structure
 
