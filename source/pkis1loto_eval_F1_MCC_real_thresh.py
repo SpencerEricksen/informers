@@ -5,6 +5,7 @@ import pandas as pd
 import informer_functions as inf
 import glob
 import sys
+import sklearn as sk
 
 inf_selection = 'prom'
 
@@ -21,6 +22,7 @@ df_continuous = inf.get_continuous( activity_matrix_file )
 df_binary = inf.get_binary( df_continuous )
 
 # read in thresholds data (provided by Huikun--predicted 2sigma thresholds based on informer activities)
+'''
 if inf_selection == 'prom':
     df_thresh = pd.read_csv( '../data/thresholds_2sigma/prom_le_thresh.txt', \
             index_col=0, header=None, names=['Activity'], delimiter=" " )
@@ -30,7 +32,7 @@ elif inf_selection == 'clst':
 else:
     print('issue with 2sigma thresholds!')
     exit(1)
-
+'''
 
 # possible to back-calculate the expected active fraction?
 
@@ -66,13 +68,13 @@ for f in rankings_files:
 
         # binary prediction: assign 'active' label to N top ranking \ 
         # cpds where N is number of true actives on target
-        N = df_temp['labels'].sum()        p
+        N = df_temp['labels'].sum()
         df_temp['binary_predictions'] = df_temp['scores'] <= df_temp['scores'].sort_values()[N]
 
         # or probably better, binary predictions: assign 'active' label to N top ranking \
         # cpds where N is predicted number of true actives on target
-        N = df_continuous.loc[ df_continuous[targ] >= df_thresh.loc[targ][0], targ ].count()
-        df_temp['binary_predictions'] = df_temp['scores'] <= df_temp['scores'].sort_values()[N]
+        #N = df_continuous.loc[ df_continuous[targ] >= df_thresh.loc[targ][0], targ ].count()
+        #df_temp['binary_predictions'] = df_temp['scores'] <= df_temp['scores'].sort_values()[N]
 
         labels_arr = df_temp['labels'].values
         predictions_arr = df_temp['binary_predictions'].values
@@ -85,12 +87,12 @@ for f in rankings_files:
         temp_dict_mcc[targ] = mcc
 
   s_f1 = pd.Series( temp_dict_f1 ).rename(f)
-  s_f1_list.append(s_f1)
+  s_list_f1.append(s_f1)
   s_mcc = pd.Series( temp_dict_mcc ).rename(f)
-  s_mcc_list.append(s_mcc)
+  s_list_mcc.append(s_mcc)
 
-df_f1 = pd.concat( s_f1_list, axis=1 )
-df_mcc = pd.concat( s_mcc_list, axis=1 )
+df_f1 = pd.concat( s_list_f1, axis=1 )
+df_mcc = pd.concat( s_list_mcc, axis=1 )
 
 df_f1.columns = [ 'BC_l', 'BC_s', 'BC_w', 'BF_l', 'BF_s', 'BF_w', 'RS', 'AS', 'CS' ]
 df_mcc.columns = [ 'BC_l', 'BC_s', 'BC_w', 'BF_l', 'BF_s', 'BF_w', 'RS', 'AS', 'CS' ]
@@ -99,6 +101,6 @@ new_order = [ 'BC_s', 'BC_l', 'BC_w', 'BF_s', 'BF_l', 'BF_w', 'RS', 'CS', 'AS' ]
 df_f1 = df_f1[ new_order ]
 df_mcc = df_mcc[ new_order ]
 
-df_f1.to_csv('../output_pkis1loto/metrics/pkis1loto_eval_F1.csv', index_label='target')
-df_mcc.to_csv('../output_pkis1loto/metrics/pkis1loto_eval_MCC.csv', index_label='target')
+df_f1.to_csv('../output_pkis1loto/metrics/pkis1loto_eval_F1_real_thresh.csv', index_label='target')
+df_mcc.to_csv('../output_pkis1loto/metrics/pkis1loto_eval_MCC_real_thresh.csv', index_label='target')
 

@@ -17,6 +17,16 @@ re-evaluate models on PKIS1 LOTO, this time baseline models use ECFP6
 ./pkis1loto_eval_fasr10_ecfp6.py
 ```
 
+Run F1-score and MCC metrics
+Need to convert cpd ranking to binary classification. To do this, we estimate number of actives (N) for each target based on outcomes from informers and then assign 'active' label to top scoring N molecules
+```
+./pkis1loto_eval_F1_MCC_estimate_thresh.py
+```
+Also run using actual thresholds for each target so predictions and real labels have same ratio of positives/negatives
+```
+./pkis1loto_eval_F1_MCC_real_thresh.py
+```
+
 
 
 run paired Student's t-test
