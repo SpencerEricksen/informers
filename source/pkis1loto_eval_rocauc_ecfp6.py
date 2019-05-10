@@ -5,7 +5,7 @@ import pandas as pd
 import informer_functions as inf
 import glob
 
-rankings_files = glob.glob('../output_pkis1loto/rankings/bl/ranked_df_16_*_ecfp6.csv')
+rankings_files = glob.glob('../output_pkis1loto/rankings/bl/ecfp6/ranked_df_16_*_ecfp6.csv')
 rankings_files = rankings_files + glob.glob('../output_pkis1loto/rankings/hz/*.csv')
 rankings_files = rankings_files + glob.glob('../output_pkis1loto/rankings/cp/*.csv')
 # alphabetize the file list so we can re-arrange later

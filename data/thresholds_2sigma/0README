@@ -7,3 +7,16 @@ prom_le_thresh.txt
 thresh_pkis1_real2sigma.csv
 thresh_pkis2_real2sigma.csv
 
+
+# predictions don't look to bad
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+df1 = pd.read_csv('thresh_pkis1_real2sigma.csv', index_col=0)
+df2 = pd.read_csv('clst_le_thresh.txt', delimiter=" ", header=None, index_col=0)
+df3 = pd.read_csv('prom_le_thresh.txt', delimiter=" ", header=None, index_col=0)
+df4 = pd.concat( [df1, df2, df3], axis=1 )
+df4.columns = [ 'real', 'c_estimate', 'p_estimate' ]
+df4.plot( x='real', y=['c_estimate', 'p_estimate'], kind='line', subplots=True, ls='none', marker='o', layout=(1,2), xlim=(0.0,1.0), ylim=(0.0, 1.0), sharey=True )
+plt.show()
+
