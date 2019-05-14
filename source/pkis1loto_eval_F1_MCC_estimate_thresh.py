@@ -51,8 +51,9 @@ for f in rankings_files:
 
   for targ in df_rankings.columns:
     if df_rankings[targ].count() < 300:
-        temp_dict_f1[targ] = np.nan
-        temp_dict_mcc[targ] = np.nan
+        # provide evaluation expected for a random classifier
+        temp_dict_f1[targ] = 0.000 
+        temp_dict_mcc[targ] = 0.000
     else:
         df_rankings[targ][ df_rankings[targ] == 'informer' ] = -100.0
         s_labels = df_binary[targ].rename('labels')
