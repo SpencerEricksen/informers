@@ -30,6 +30,7 @@ re-run frequent-hitters baselines:
 ./pkis1loto_baseline_inf_sel_rank_ecfp6.py 16 prom we
 ```
 
+
 # NEW TARGETS: PknB and BGLF4
 run all baselines on new targets using either PKIS1 or PKIS2 matrix:
 ```
@@ -37,4 +38,9 @@ run all baselines on new targets using either PKIS1 or PKIS2 matrix:
 ./newtargs_baseline_inf_sel_rank.py 16 2
 ```
 
+added a 3rd prospective target:
+```
+./newtarg3_baseline_inf_sel_rank.py 16 1
+./newtarg3_baseline_inf_sel_rank.py 16 2
+```
 
