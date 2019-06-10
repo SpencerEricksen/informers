@@ -1,27 +1,25 @@
 # baseline methods
 
-run baseline methods on new targets
+run baseline methods on new targets (BGLF4, PknB, and ROP18) using 16 informers on both pkis1 and pkis2 cpd sets
 ```
 python newtargs_baseline_inf_sel_rank.py 16 1
 python newtargs_baseline_inf_sel_rank.py 16 2
 ```
 
-build individual method/matrix data rankings
+build individual method/matrix data rankings for the baseline methods
 ```
 python newtargs_build_rankings.py 1
 python newtargs_build_rankings.py 2
 
 ```
-merge all methods into data ranking for each target/matrix
+merge cpd rankings from all methods (baselines and non-baselines) into complete ranking data set for each target/matrix
 ```
 python newtargs_merge_data.py 1 bglf4
 python newtargs_merge_data.py 2 bglf4
 python newtargs_merge_data.py 1 pknb
 python newtargs_merge_data.py 2 pknb
-```
-Already extracted rop18 from complete ranking of all methods. Used sed to replace "Informers" to "informers" for some of the non-baseline methods for rop18 rankings.
-```
-python newtarg_rop18_merge_data.py
+python newtargs_merge_data.py 1 rop18
+python newtargs_merge_data.py 2 rop18
 ```
 
 run evaluation metrics for each metric-target combination
