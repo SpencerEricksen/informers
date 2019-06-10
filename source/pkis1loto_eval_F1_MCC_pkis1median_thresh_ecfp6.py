@@ -69,6 +69,6 @@ new_order = [ 'BC_s', 'BC_l', 'BC_w', 'BF_s', 'BF_l', 'BF_w', 'RS', 'CS', 'AS' ]
 df_f1 = df_f1[ new_order ]
 df_mcc = df_mcc[ new_order ]
 
-df_f1.to_csv('../output_pkis1loto/metrics/pkis1loto_eval_F1_pkis1median_thresh_ecfp6_v1.2.csv', index_label='target')
-df_mcc.to_csv('../output_pkis1loto/metrics/pkis1loto_eval_MCC_pkis1median_thresh_ecfp6_v1.2.csv', index_label='target')
+df_f1.to_csv('../output_pkis1loto/metrics/pkis1loto_eval_F1_pkis1median_thresh_ecfp6.csv', index_label='target')
+df_mcc.to_csv('../output_pkis1loto/metrics/pkis1loto_eval_MCC_pkis1median_thresh_ecfp6.csv', index_label='target')
 

@@ -17,7 +17,7 @@ except:
     exit
 
 # get the data files for scores, labels, and scaffolds
-rankings_file = '../output_newtargs/pkis'+matrix+'_'+targ+'_model_rankings_v1.2.csv'
+rankings_file = '../output_newtargs/pkis'+matrix+'_'+targ+'_model_rankings.csv'
 activity_matrix_file = '../data/data_newtargs_pkis'+matrix+'cpds.csv'
 df_scaffolds = pd.read_csv('../data/compounds/scaffolds/pkis'+matrix+'_gen_scaffids.csv', index_col='molid')
 df_scaffolds.index = df_scaffolds.index.map(str)

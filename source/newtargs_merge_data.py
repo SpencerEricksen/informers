@@ -15,5 +15,5 @@ df4 = pd.read_csv('../output_newtargs/hz/AS_'+targ+'_pkis'+matrix+'.csv', index_
 df5 = pd.concat( [df1, df2, df3, df4], axis=1 )
 
 
-df5[ ['b_cs', 'b_cl', 'b_cw', 'b_bs', 'b_bl', 'b_bw', 'RS', 'CS', 'AS' ] ].to_csv('../output_newtargs/pkis'+matrix+'_'+targ+'_model_rankings_v1.2.csv', index_label='molid')
+df5[ ['b_cs', 'b_cl', 'b_cw', 'b_bs', 'b_bl', 'b_bw', 'RS', 'CS', 'AS' ] ].to_csv('../output_newtargs/pkis'+matrix+'_'+targ+'_model_rankings.csv', index_label='molid')
 

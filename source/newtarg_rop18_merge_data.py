@@ -24,6 +24,6 @@ df['RS'] = df['RS'] * -1.000
 df.loc[ df['RS'] == -1000.0, 'RS'] = "informer"
 
 # dump rop18 rankings for PKIS1 and PKIS2 cpd sets
-df[['b_cs','b_cl','b_cw','b_bs','b_bl','b_bw','RS','CS','AS']].loc[ df['Group']==1].to_csv( '../output_newtargs/pkis1_rop18_model_rankings_v1.2.csv', index_label='molid' )
-df[['b_cs','b_cl','b_cw','b_bs','b_bl','b_bw','RS','CS','AS']].loc[ df['Group']==2].to_csv( '../output_newtargs/pkis2_rop18_model_rankings_v1.2.csv', index_label='molid' )
+df[['b_cs','b_cl','b_cw','b_bs','b_bl','b_bw','RS','CS','AS']].loc[ df['Group']==1].to_csv( '../output_newtargs/pkis1_rop18_model_rankings.csv', index_label='molid' )
+df[['b_cs','b_cl','b_cw','b_bs','b_bl','b_bw','RS','CS','AS']].loc[ df['Group']==2].to_csv( '../output_newtargs/pkis2_rop18_model_rankings.csv', index_label='molid' )
 

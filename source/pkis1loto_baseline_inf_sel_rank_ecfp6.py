@@ -108,5 +108,5 @@ for targ in df_act_mat.columns:
     ranked_sets.append( ranked_molids )
 
 ranked_df = pd.concat( ranked_sets, axis=1, sort=False )
-ranked_df.to_csv( '../output_pkis1loto/rankings/bl/ranked_df_'+str(n_informers)+'_'+inf_selection+'_'+ranking+'_thresh_ecfp6_v1.2.csv', index_label='molid' )
+ranked_df.to_csv( '../output_pkis1loto/rankings/bl/ranked_df_'+str(n_informers)+'_'+inf_selection+'_'+ranking+'_thresh_ecfp6.csv', index_label='molid' )
 

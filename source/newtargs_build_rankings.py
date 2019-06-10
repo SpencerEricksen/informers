@@ -6,7 +6,7 @@ import sys
 
 matrix = str(sys.argv[1])
 
-df = pd.read_csv('../output_newtargs/bl/rankings_baseline_pkis'+matrix+'_v1.2.csv', index_col='molid' )
+df = pd.read_csv('../output_newtargs/bl/rankings_baseline_pkis'+matrix+'.csv', index_col='molid' )
 
 df_pknb = df[[ c for c in df.columns if 'pknb' in c ]]
 df_pknb.columns = ['b_cs', 'b_cl', 'b_cw', 'b_bs', 'b_bl', 'b_bw' ]

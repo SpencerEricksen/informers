@@ -20,12 +20,12 @@ except:
 
 # load data
 if matrix_dataset == '1':
-    newtarg_dataset = '../data/data_newtargs3_pkis1cpds.csv'
+    newtarg_dataset = '../data/data_newtargs_pkis1cpds.csv'
     activity_data_csv = '../data/pkis1.csv'
     fps_file = '../data/compounds/pkis1_uniq_ecfp4_1024.fps'
     distance_data_csv = '../data/compounds/pkis1_jaccard_distmat_ecfp4.csv'
 elif matrix_dataset == '2':
-    newtarg_dataset = '../data/data_newtargs3_pkis2cpds.csv'
+    newtarg_dataset = '../data/data_newtargs_pkis2cpds.csv'
     activity_data_csv = '../data/pkis2.csv'
     fps_file = "../data/compounds/pkis2_uniq_415_ecfp4_1024.fps"
     distance_data_csv = '../data/compounds/pkis2_415_jaccard_distmat_ecfp4.csv'
@@ -100,5 +100,5 @@ for targ in [ 'bglf4', 'pknb', 'rop18' ]:
             print('{}, {}, {}, {}, {}, t{:.3f}, {}').format( targ, str(n_informers), inf_selection, ranking, matrix_dataset, thresh, len(act_inf_molids) )
 
 ranked_df = pd.concat( ranked_sets, axis=1, sort=False )
-ranked_df.to_csv( '../output_newtargs/bl/rankings_baseline_pkis'+matrix_dataset+'_v1.2.csv', na_rep=np.nan, index_label='molid' )
+ranked_df.to_csv( '../output_newtargs/bl/rankings_baseline_pkis'+matrix_dataset+'.csv', na_rep=np.nan, index_label='molid' )
 

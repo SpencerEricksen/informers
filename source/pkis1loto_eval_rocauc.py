@@ -47,4 +47,4 @@ df = pd.concat( s_list, axis=1 )
 df.columns = [ 'BC_l', 'BC_s', 'BC_w', 'BF_l', 'BF_s', 'BF_w', 'RS', 'AS', 'CS' ]
 new_order = [ 'BC_s', 'BC_l', 'BC_w', 'BF_s', 'BF_l', 'BF_w', 'RS', 'CS', 'AS' ]
 df = df[ new_order ]
-df.to_csv('../output_pkis1loto/metrics/pkis1loto_eval_ROCAUC_v1.2.csv', index_label='target')
+df.to_csv('../output_pkis1loto/metrics/pkis1loto_eval_ROCAUC.csv', index_label='target')
