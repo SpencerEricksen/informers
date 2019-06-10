@@ -1,6 +1,38 @@
+# PKIS1 LOTO (RDKit Morgan fingerprints with radius=2, 1024 bits)
+
+run chemometric baselines:
+```
+./pkis1loto_baseline_inf_sel_rank.py 16 clst se
+./pkis1loto_baseline_inf_sel_rank.py 16 clst le
+./pkis1loto_baseline_inf_sel_rank.py 16 clst we
+```
+
+run frequent-hitters baselines:
+```
+./pkis1loto_baseline_inf_sel_rank.py 16 prom se
+./pkis1loto_baseline_inf_sel_rank.py 16 prom le
+./pkis1loto_baseline_inf_sel_rank.py 16 prom we
+```
+
+# re-run PKIS1 LOTO using Morgan fingerprints with radius=3, 1024 bits
+
+re-run chemometric baselines:
+```
+./pkis1loto_baseline_inf_sel_rank_ecfp6.py 16 clst se
+./pkis1loto_baseline_inf_sel_rank_ecfp6.py 16 clst le
+./pkis1loto_baseline_inf_sel_rank_ecfp6.py 16 clst we
+```
+
+re-run frequent-hitters baselines:
+```
+./pkis1loto_baseline_inf_sel_rank_ecfp6.py 16 prom se
+./pkis1loto_baseline_inf_sel_rank_ecfp6.py 16 prom le
+./pkis1loto_baseline_inf_sel_rank_ecfp6.py 16 prom we
+```
+
 # Evaluate VS metrics using rankings for baselines and non-baselines.
 
-Run metrics calculations over all targets for Huikun's (CS, AS), Ching-pei's (RS), and my 6 baselines (Bx) using ECFP4.
+Run metrics calculations over all targets for all IBRs--Huikun's (CS, AS), Ching-Pei's (RS), and my 6 baselines (Bx) using ECFP4.
 ```
 ./pkis1loto_eval_rocaucs.py
 ./pkis1loto_eval_nef10.py
@@ -8,7 +40,7 @@ Run metrics calculations over all targets for Huikun's (CS, AS), Ching-pei's (RS
 ./pkis1loto_eval_F1_MCC_pkis1median_thresh.py
 ```
 
-> Note: for metrics evaluations, if no informers are returned as "active" (based on inferred active threshold), baseline ranking methods 's' and 'l' will use single most active compound for nearest-neighbors rankings.
+> Note: for metrics evaluations, if no informers are returned as "active" (based on inferred active threshold), baseline ranking methods 's' and 'l' will use single most active compound for nearest-neighbors rankings (expansion).
 
 Re-evaluate models on PKIS1 LOTO for baseline models using ECFP6 (not significantly different).
 ```
