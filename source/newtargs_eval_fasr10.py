@@ -1,5 +1,3 @@
-#!/home/ssericksen/anaconda2/bin/python2.7
-
 import numpy as np
 import pandas as pd
 import informer_functions as inf
@@ -10,9 +8,9 @@ try:
     targ = sys.argv[2]   # pknb, bglf4, or rop18
 except:
     print('')
-    print(' eval_rocauc_newtarg.py  matrix   targ')
+    print(' python script.py  matrix   targ')
     print('')
-    print('                         1 or 2   pknb, bglf4, or rop18')
+    print('                   1 or 2   pknb, bglf4, or rop18')
     print('')
     exit
 

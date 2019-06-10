@@ -1,5 +1,3 @@
-#!/home/ssericksen/anaconda2/bin/python2.7
-
 import numpy as np
 import pandas as pd
 import informer_functions as inf
@@ -15,8 +13,8 @@ try:
     ranking = str(sys.argv[3])
 except:
     print('')
-    print("usage: ./script.py   number_informers: 16  inf_sel_methods:'clst','prom','prom_glob'  ranking:'se','le','we' ") 
-    print('       arg0          arg1                  arg2                                       arg3')  
+    print("usage: python  ./script.py   number_informers: 16  inf_sel_methods:'clst','prom','prom_glob'  ranking:'se','le','we' ") 
+    print('               arg0          arg1                  arg2                                       arg3')  
     print('')
     exit(1) 
 

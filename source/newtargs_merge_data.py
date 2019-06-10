@@ -1,11 +1,9 @@
-#!/home/ssericksen/anaconda2/bin/python2.7
-
 import pandas as pd
 import numpy as np
 import sys
 
 matrix = sys.argv[1] # 1 or 2
-targ = sys.argv[2]   # bglf4 or pknb
+targ = sys.argv[2]   # bglf4, pknb, or rop18
 
 df1 = pd.read_csv('../output_newtargs/bl/BL_'+targ+'_pkis'+matrix+'.csv', index_col='molid' )
 df2 = pd.read_csv('../output_newtargs/cp/RS_'+targ+'_pkis'+matrix+'.csv', index_col='molid' ) 

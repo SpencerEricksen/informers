@@ -1,5 +1,3 @@
-#!/home/ssericksen/anaconda2/bin/python2.7
-
 import informer_functions as inf
 import sys
 import pandas as pd
@@ -10,8 +8,8 @@ try:
     matrix_dataset = str(sys.argv[2])       # 1 or 2
 except:
     print("")
-    print("usage: ./script.py num_informers matrix_dataset ")
-    print("       arg0        arg1          arg2           ")
+    print("usage: python script.py num_informers matrix_dataset ")
+    print("                arg0        arg1          arg2           ")
     print("")
     print("		num_informers: 16")
     print("		matrix_dataset	= '1' for pkis1 or '2' for pkis2")

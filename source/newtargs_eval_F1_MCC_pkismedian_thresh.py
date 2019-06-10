@@ -1,5 +1,3 @@
-#!/home/ssericksen/anaconda2/bin/python2.7
-
 # evaluate F1 and MCC metrics on new targets. Assume 10% hit fractions,
 # and predict top 10% of cpds by score as the actives
 
@@ -14,9 +12,9 @@ try:
     targ = sys.argv[2]   # pknb, bglf4, or rop18
 except:
     print('')
-    print(' eval_rocauc_newtarg.py  matrix   targ')
+    print(' python script.py  matrix   targ')
     print('')
-    print('                         1 or 2   pknb, bglf4, or rop18')
+    print('                   1 or 2   pknb, bglf4, or rop18')
     print('')
     exit
 

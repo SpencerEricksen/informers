@@ -1,12 +1,9 @@
-#!/home/ssericksen/anaconda2/bin/python2.7
-
 import sys
 import pandas as pd
 import numpy as np
 from scipy import stats 
 
 incsv = sys.argv[1]
-#df = pd.read_csv('./rocauc/pkis1loto_rocauc_metrics_20181106.csv', index_col='target')
 df = pd.read_csv( incsv, index_col='target' )
 
 cols = list(df.columns)
@@ -21,8 +18,6 @@ for i in range(len(cols)):
         temp = df[ [ cols[i], cols[j] ] ].dropna()
         a = temp[ cols[i] ].values
         b = temp[ cols[j] ].values
-        #s, p = stats.ttest_rel(a,b)
-        #s, p = stats.ranksums(a,b)
         s, p = stats.wilcoxon(a,b)
         print('{} vs {}, tstat:{:.6f}, pval:{:.9f}, N:{}').format( cols[i], cols[j], s, p, len(temp) )
         p_array[i,j] = p

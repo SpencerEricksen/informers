@@ -1,5 +1,3 @@
-#!/home/ssericksen/anaconda2/bin/python2.7
-
 import numpy as np
 import pandas as pd
 import informer_functions as inf
