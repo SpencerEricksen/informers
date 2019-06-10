@@ -26,7 +26,7 @@ The `informers` repository comprises 5 main folders:
   - `data/thresholds_2sigma` - inferred target activity thresholds for assigning compound binary activity labels
   - `data/original_data` - original PKIS1 and PKIS2 data sets with descriptions of pre-processing
   
-- `output_newtargs` - output from all IBR methods on new targets (PknB and BGLF) and metrics evaluations
+- `output_newtargs` - output from all IBR methods on prospective microbial kinase targets (PknB, BGLF, ROP18) and metrics evaluations
 
 - `output_pkis1loto` - output from all IBR methods for 224 PKIS1 targets and metrics evaluations
 
