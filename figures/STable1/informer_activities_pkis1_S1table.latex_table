@@ -1,0 +1,49 @@
+PubChem CID & pknb & bglf4 & rop18 & b_cw & b_bw & RS & CS & AS\\
+10173796 & 0.42 & 0.07 & 0.19 &  & \textbullet &  & \textbullet & \textbullet\\
+10308522 & 0.00 & 0.05 & 1.22 &  & \textbullet &  & \textbullet & \\
+11163861 & 0.11 & 0.15 & 0.05 &  & \textbullet &  & \textbullet & \\
+11281930 & 0.00 & 0.39 & 0.09 &  &  & \textbullet &  & \\
+11328632 & 0.00 & 0.00 & 0.00 &  &  & \textbullet &  & \\
+11626927 & 0.00 & 0.08 & 0.00 &  &  & \textbullet & \textbullet & \\
+11751266 & 0.00 & 0.02 & 0.03 &  &  & \textbullet &  & \\
+16048303 & 0.03 & 0.00 & 0.03 & \textbullet &  &  &  & \\
+23646938 & 0.01 & 0.07 & 0.00 &  &  &  & \textbullet & \textbullet\\
+25023715 & 0.00 & 0.02 & 0.00 &  &  & \textbullet &  & \textbullet\\
+25211574 & 0.00 & 0.29 & 0.03 &  &  & \textbullet &  & \textbullet\\
+25218584 & 0.02 & 0.00 & 0.00 &  &  & \textbullet &  & \\
+25218593 & 0.00 & 0.00 & 0.01 &  &  & \textbullet &  & \\
+25218600 & 0.00 & 0.63 & 0.43 &  & \textbullet &  & \textbullet & \textbullet\\
+25218601 & 0.00 & 0.00 & 0.18 &  & \textbullet &  & \textbullet & \textbullet\\
+25218614 & 0.00 & 0.70 & 0.07 & \textbullet & \textbullet &  & \textbullet & \\
+44397010 & 0.00 & 0.00 & 0.05 & \textbullet &  & \textbullet &  & \\
+44397250 & 0.04 & 0.00 & 0.06 &  &  & \textbullet &  & \\
+44397453 & 0.06 & 0.05 & 0.02 &  &  & \textbullet &  & \\
+44418539 & 0.01 & 0.00 & 0.01 & \textbullet &  &  &  & \\
+44532204 & 0.00 & 0.01 & 0.18 & \textbullet &  &  &  & \textbullet\\
+44532523 & 0.01 & 0.00 & 0.03 & \textbullet &  &  &  & \\
+44536036 & 0.01 & 0.00 & 0.04 &  & \textbullet &  & \textbullet & \\
+44581245 & 0.00 & 0.00 & 0.00 &  &  &  &  & \textbullet\\
+448008 & 0.00 & 0.00 & 0.01 & \textbullet &  &  &  & \\
+53239967 & 0.00 & 0.46 & 0.85 &  & \textbullet &  & \textbullet & \textbullet\\
+5329829 & 0.00 & 0.00 & 0.02 &  & \textbullet & \textbullet &  & \textbullet\\
+5329854 & 0.00 & 0.09 & 0.50 & \textbullet &  &  &  & \\
+5482344 & 0.00 & 0.73 & 0.01 &  & \textbullet &  & \textbullet & \\
+56604013 & 0.41 & 0.00 & 0.03 &  &  &  &  & \textbullet\\
+56604034 & 0.27 & 0.00 & 0.02 &  & \textbullet &  & \textbullet & \textbullet\\
+57391096 & 0.01 & 0.00 & 0.00 &  & \textbullet & \textbullet & \textbullet & \textbullet\\
+57396353 & 0.04 & 0.11 & 0.00 &  & \textbullet &  &  & \\
+57399798 & 0.01 & 0.02 & 0.04 & \textbullet &  &  &  & \\
+6539047 & 0.00 & 0.00 & 0.15 & \textbullet &  &  &  & \\
+6539056 & 0.00 & 0.00 & 1.00 &  &  & \textbullet &  & \\
+6539081 & 0.07 & 0.33 & 1.01 &  &  & \textbullet & \textbullet & \textbullet\\
+6539107 & 0.00 & 0.46 & 0.85 &  & \textbullet &  & \textbullet & \\
+6539108 & 0.03 & 0.46 & 0.10 &  & \textbullet &  & \textbullet & \\
+6539361 & 0.00 & 0.03 & 0.02 & \textbullet &  &  &  & \\
+6539593 & 0.00 & 0.00 & 0.03 & \textbullet &  &  &  & \\
+766949 & 0.03 & 0.02 & 0.00 & \textbullet &  &  &  & \\
+9604911 & 0.00 & 0.00 & 0.05 &  &  &  &  & \textbullet\\
+9822610 & 0.00 & 0.00 & 0.01 &  & \textbullet &  &  & \\
+9826308 & 0.03 & 0.00 & 0.03 & \textbullet &  &  &  & \\
+9901964 & 0.00 & 0.00 & 0.61 & \textbullet &  &  &  & \\
+9910722 & 0.00 & 0.00 & 0.07 & \textbullet &  &  &  & \\
+9927432 & 0.00 & 0.06 & 0.12 &  &  & \textbullet &  & \textbullet\\

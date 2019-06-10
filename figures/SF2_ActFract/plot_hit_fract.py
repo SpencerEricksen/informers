@@ -20,8 +20,10 @@ try:
     # active fractions for each target (pknb or bglf4) with each matrix (1 or 2)
     pknb_1 = 0.0219     # 8/366
     bglf4_1 = 0.0301    # 11/366
+    rop18_1 = 0.043716  # 16/366
     pknb_2 = 0.0169     # 7/415
     bglf4_2 = 0.0241    # 10/415
+    rop18_2 = 0.045783  # 19/415
 except:
     print " "
     print " plot_hist.py   numbers1.csv   numbers2.csv   title"
@@ -77,13 +79,18 @@ ax2.set_title( "PKIS2, m={}, median={:.3f}, sigma={:.3f}".format( N2, median2, s
 ax1.set_ylabel('number of targets')
 ax1.set_xlabel('fraction active')
 ax2.set_xlabel('fraction active')
+
 ax1.plot( [pknb_1], [1], marker="D", linestyle="", color='tomato' ) 
 ax1.plot( [bglf4_1], [1], marker="D", linestyle="", color='slateblue' )
+ax1.plot( [rop18_1], [1], marker="D", linestyle="", color='green' )
+
 ax2.plot( [pknb_2], [1], marker="D", linestyle="", color='tomato' )
 ax2.plot( [bglf4_2], [1], marker="D", linestyle="", color='slateblue' )
+ax2.plot( [rop18_2], [1], marker="D", linestyle="", color='green' )
+
 ax1.set_xlim( x_limits_data[0], x_limits_data[1]) #20, 50)
 ax2.set_xlim( x_limits_data[0], x_limits_data[1])
 ax1.set_ylim( y_limits_data[0], y_limits_data[1])
 
 fig.set_size_inches(7,4)
-plt.savefig('hist_pkis12_actfract.png', bbox_inches='tight')
+plt.savefig('sfig2_hist_pkis12_actfract.png', bbox_inches='tight')

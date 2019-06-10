@@ -20,8 +20,10 @@ try:
     # list of minimal sequence identities to nearest neighbor (obtained from matrix)
     pknb_1 = 16.1
     bglf4_1 = 13.8
+    rop18_1 = 20.2
     pknb_2 = 16.1
     bglf4_2 = 14.2
+    rop18_2 = 20.7
 except:
     print " "
     print " plot_hist.py   numbers1.csv   numbers2.csv "
@@ -78,11 +80,13 @@ ax1.set_xlabel('sequence identity (%)')
 ax2.set_xlabel('sequence identity (%)')
 ax1.plot( [pknb_1], [1], marker="D", linestyle="", color='tomato' ) 
 ax1.plot( [bglf4_1], [1], marker="D", linestyle="", color='slateblue' )
+ax1.plot( [rop18_1], [1], marker="D", linestyle="", color='green' )
 ax2.plot( [pknb_2], [1], marker="D", linestyle="", color='tomato' )
 ax2.plot( [bglf4_2], [1], marker="D", linestyle="", color='slateblue' )
+ax2.plot( [rop18_2], [1], marker="D", linestyle="", color='green' )
 ax1.set_xlim( x_limits_data[0], x_limits_data[1]) #20, 50)
 ax2.set_xlim( x_limits_data[0], x_limits_data[1])
 ax1.set_ylim( y_limits_data[0], y_limits_data[1])
 
 fig.set_size_inches(7,4)
-plt.savefig('hist_pkis1_pkis2_21_max_seq_ident.png', bbox_inches='tight')
+plt.savefig('sfig1_hist_pkis12_max_seq_ident.png', bbox_inches='tight')

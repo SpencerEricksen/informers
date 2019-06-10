@@ -1,0 +1,2 @@
+sed -e 's/,/ \& /g' -e 's/informer/\\textbullet/g' -e 's/$/\\\\/g' informer_activities_pkis1_S1table.csv > informer_activities_pkis1_S1table.latex_table
+

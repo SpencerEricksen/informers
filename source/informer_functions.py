@@ -137,8 +137,7 @@ def inf_sel_clst_medoids( n_informers, fps_file ):
 
 def gen_rand_inf_act_vec( lb, ub, k ):
     '''generate a random activity vector of percentage inhibition values
-       with lb=lowerbound(float), ub=upperbound, and k (integer) the number 
-       of values (# informers)'''
+       with lb=lowerbound(float), ub=upperbound, and k (integer) length'''
     # generate vector random activites (% inhib) with flat dist
     A = np.random.uniform( low=lb, high=ub, size=( k, ) )
     return A

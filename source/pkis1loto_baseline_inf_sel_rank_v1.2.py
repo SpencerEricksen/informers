@@ -35,7 +35,7 @@ elif inf_selection == 'clst':
     df_thresh = pd.read_csv( '../data/thresholds_2sigma/clst_le_thresh.txt', \
             index_col=0, header=None, names=['Activity'], delimiter=" " )    
 else:
-    print('issue with 2sigma thresholds!')
+    print('error reading/finding 2sigma thresholds, if no estimate available set thresh=0.50 (50%)')
     exit(1)
 
 # obtain list of informer cpds via different informer selection methods
@@ -63,37 +63,44 @@ for targ in df_act_mat.columns:
     # get the activities for the informer set on target of interest
     inf_activities = list( df_act_mat[targ].loc[ inf_molids ] )
  
-    # determine activity threshold for target based on its activity data
+    '''Use predicted activity thresholds for target based on informer activity data.
+       Active/Inactive threshold used in our work is z-score >= +2, but without knowledge
+       of cpd activity distribution on target, activity at z-score=2 is estimated using
+       informer activities and inference to activity distributions of nearest off-targets 
+       in PKIS1 or PKIS2 matrices.'''
+
+    # ground truth threshold
     #thresh = df_act_mat[targ].mean(axis=0) + 2*df_act_mat[targ].std(axis=0)
+
+    # predicted threshold
     thresh = float( df_thresh.loc[targ] )
 
     # get list of the active informers--remove informers that don't satify threshold
     act_inf_molids = inf.process_informer_list( inf_molids, inf_activities, thresh=thresh )
     print("{},{}").format( targ, len(act_inf_molids) )
     if len(act_inf_molids) == 0 and ranking in ('se','le'):
-        noninf_molids = list( set(df_act_mat.index) ^ set(inf_molids) ) 
-        ranked_noninf_molids = pd.Series( [np.nan]*len(noninf_molids), index=noninf_molids )
+        default_thresh = max(inf_activities) # if no actives in informer set use the most active cpd 
+        act_inf_molids = inf.process_informer_list( inf_molids, inf_activities, thresh=default_thresh )
 
+    # get noninf-by-inf distance submatrix
+    df_dist_submat = inf.get_distance_submatrix_df( distance_data_csv, inf_molids, act_inf_molids )
+    
+    df_dist_submat_temp = df_dist_submat.copy()
+    
+    # choose ranking method, score noninformers, build rank-ordered list
+    if ranking == 'se':
+        # simple expansion
+        ranked_noninf_molids = inf.rank_by_active_expansion( df_dist_submat_temp )
+    elif ranking == 'le':
+        # loop expansion
+        ranked_noninf_molids = inf.rank_by_loop_active_expansion( df_dist_submat_temp )
+    elif ranking == 'we':
+        # weighted expansion
+        df_dist_submat = inf.get_distance_submatrix_df( distance_data_csv, inf_molids, inf_molids )
+        ranked_noninf_molids = inf.rank_by_weighted_expansion( inf_activities, df_dist_submat )
     else:
-        # get noninf-by-inf distance submatrix
-        df_dist_submat = inf.get_distance_submatrix_df( distance_data_csv, inf_molids, act_inf_molids )
-    
-        df_dist_submat_temp = df_dist_submat.copy()
-    
-        # choose ranking method, score noninformers, build rank-ordered list
-        if ranking == 'se':
-            # simple expansion
-            ranked_noninf_molids = inf.rank_by_active_expansion( df_dist_submat_temp )
-        elif ranking == 'le':
-            # loop expansion
-            ranked_noninf_molids = inf.rank_by_loop_active_expansion( df_dist_submat_temp )
-        elif ranking == 'we':
-            # weighted expansion
-            df_dist_submat = inf.get_distance_submatrix_df( distance_data_csv, inf_molids, inf_molids )
-            ranked_noninf_molids = inf.rank_by_weighted_expansion( inf_activities, df_dist_submat )
-        else:
-            print('missing or invalid selection method indicated')
-            exit(1)
+        print('missing or invalid selection method indicated')
+        exit(1)
    
     inf_series = pd.Series( ['informer']*len(inf_molids), index=inf_molids )
     ranked_molids = pd.concat( [ranked_noninf_molids, inf_series ], axis=0 )
@@ -101,5 +108,5 @@ for targ in df_act_mat.columns:
     ranked_sets.append( ranked_molids )
 
 ranked_df = pd.concat( ranked_sets, axis=1, sort=False )
-ranked_df.to_csv( '../output_pkis1loto/rankings/bl/ranked_df_'+str(n_informers)+'_'+inf_selection+'_'+ranking+'_thresh.csv', index_label='molid' )
+ranked_df.to_csv( '../output_pkis1loto/rankings/bl/ranked_df_'+str(n_informers)+'_'+inf_selection+'_'+ranking+'_thresh_v1.2.csv', index_label='molid' )
 

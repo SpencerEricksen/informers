@@ -1,12 +1,12 @@
-# predicted thresholds, based on informer outcomes
+# predicted thresholds: estimated activity at z-score = +2, based on informer outcomes
 clst_le_thresh.txt  
 newtarget_thresholds.csv  
 prom_le_thresh.txt
 
-# real thresholds (mean + 2sigma)
+# real thresholds (mean + 2sigma) based on experimental activity distribution for each
+# target. Used to assign ground truth "active" and "inactive" compound labels
 thresh_pkis1_real2sigma.csv
 thresh_pkis2_real2sigma.csv
-
 
 # predictions don't look to bad
 import matplotlib.pyplot as plt
