@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 import sys
 import pandas as pd
 import numpy as np

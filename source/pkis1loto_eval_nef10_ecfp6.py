@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 import numpy as np
 import pandas as pd
 import informer_functions as inf

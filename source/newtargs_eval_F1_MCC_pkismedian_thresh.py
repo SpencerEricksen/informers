@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 # evaluate F1 and MCC metrics on new targets. Assume 10% hit fractions,
 # and predict top 10% of cpds by score as the actives
 
