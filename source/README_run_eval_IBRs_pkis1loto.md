@@ -44,7 +44,7 @@ python pkis1loto_eval_F1_MCC_pkis1median_thresh.py
 
 Re-evaluate models on PKIS1 LOTO for baseline models using ECFP6 (not significantly different).
 ```
-python pkis1loto_eval_rocaucs_ecfp6.py
+python pkis1loto_eval_rocauc_ecfp6.py
 python pkis1loto_eval_nef10_ecfp6.py
 python pkis1loto_eval_fasr10_ecfp6.py
 python pkis1loto_eval_F1_MCC_pkis1median_thresh_ecfp6.py
