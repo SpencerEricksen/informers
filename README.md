@@ -25,6 +25,7 @@ The `informers` repository comprises 5 main folders:
   - `data/compounds` - compound SMILES, Morgan fingerprints, and Morgan Jaccard distance matrices
   - `data/thresholds_2sigma` - inferred target activity thresholds for assigning compound binary activity labels
   - `data/original_data` - original PKIS1 and PKIS2 data sets with descriptions of pre-processing
+  - `data/rop18` - PKIS1 activity data from assays on Toxoplasma gondii Rhoptry Kinase ROP18 [Simpson et al. 2016](https://doi.org/10.1021/acsinfecdis.5b00102)
   
 - `output_newtargs` - output from all IBR methods on prospective microbial kinase targets (PknB, BGLF, ROP18) and metrics evaluations
 
