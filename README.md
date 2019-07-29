@@ -1,4 +1,4 @@
-Zenodo DOI Badge: https://doi.org/10.5281/zenodo.3354432
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3354432.svg)](https://doi.org/10.5281/zenodo.3354432)
 
 
 # Predicting kinase inhibitors using bioactivity matrix derived informer sets
