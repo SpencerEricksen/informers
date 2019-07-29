@@ -10,8 +10,8 @@ See also the repositories for:
 If you use this software or the new chemical screening data, please cite:
 
 Huikun Zhang<sup>+</sup>, Spencer S Ericksen<sup>+</sup>, Ching-pei Lee<sup>+</sup>, Gene E Ananiev, Nathan Wlodarchak, Julie C Mitchell, Anthony Gitter, Stephen J Wright, F Michael Hoffmann, Scott A Wildman, Michael A Newton.
-[Predicting kinase inhibitors using bioactivity matrix derived informer sets](https://doi.org/10.1101/532762)
-*bioRxiv* 2019. doi:10.1101/532762
+["Predicting kinase inhibitors using bioactivity matrix derived informer sets."](https://doi.org/10.1101/532762)
+*bioRxiv* 2019. doi:10.1101/532762.
 
 <sup>+</sup> equal contributions
 
@@ -25,7 +25,7 @@ The `informers` repository comprises 5 main folders:
   - `data/compounds` - compound SMILES, Morgan fingerprints, and Morgan Jaccard distance matrices
   - `data/thresholds_2sigma` - inferred target activity thresholds for assigning compound binary activity labels
   - `data/original_data` - original PKIS1 and PKIS2 data sets with descriptions of pre-processing
-  - `data/rop18` - PKIS1 activity data from assays on Toxoplasma gondii Rhoptry Kinase ROP18 [Simpson et al. 2016](https://doi.org/10.1021/acsinfecdis.5b00102)
+  - `data/rop18` - PKIS1 activity data from assays on Toxoplasma gondii Rhoptry Kinase ROP18, [Simpson et al. 2016](https://doi.org/10.1021/acsinfecdis.5b00102)
   
 - `output_newtargs` - output from all IBR methods on prospective microbial kinase targets (PknB, BGLF, ROP18) and metrics evaluations
 
